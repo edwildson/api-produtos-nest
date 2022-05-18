@@ -1,27 +1,27 @@
 version: "3.7"
 
 services:
-  backend:
-    container_name: produtos-api
-    restart: always
-    build: .
-    environment:
-      - APP_ENV=development
-      - APP_PORT=9000
-    volumes:
-      - ./src:/var/www/myapp/src
-      - ./test:/var/www/myapp/test
-    working_dir: /var/www/myapp
-    ports:
-      - "9001:9000"
-    links:
-      - mysql
-      - redis
-    depends_on:
-      - mysql
-      - redis
-    networks:
-      - myapp
+  # backend:
+  #   container_name: produtos-api
+  #   restart: unless-stopped
+  #   build: .
+  #   environment:
+  #     - APP_ENV=development
+  #     - APP_PORT=9000
+  #   volumes:
+  #     - ./src:/var/www/myapp/src
+  #     - ./test:/var/www/myapp/test
+  #   working_dir: /var/www/myapp
+  #   ports:
+  #     - "9001:9000"
+  #   links:
+  #     - mysql
+  #     - redis
+  #   depends_on:
+  #     - mysql
+  #     - redis
+  #   networks:
+  #     - myapp
   mysql: # Example Service
     container_name: myapp_mysql
     restart: always

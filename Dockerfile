@@ -3,7 +3,7 @@ FROM node:14.17.0-alpine
 LABEL maintainer="edwildson@gmail.com"
 
 # Create app directory
-WORKDIR /var/www/backend
+WORKDIR /var/www/myapp
 
 # Install app dependencies - For NPM use: `COPY package.json package-lock.lock ./`
 COPY package.json package-lock.json ./
@@ -14,7 +14,7 @@ RUN npm ci
 COPY .eslintrc.js nest-cli.json tsconfig.json tsconfig.build.json ./
 
 # Copy env
-COPY .env.docker /var/www/backend/.env
+COPY .env.docker /var/www/myapp/.env
 
 # Add storage folder to the container (If you want to add other folder contents to the container)
 # ADD storage /var/www/backend/storage
